@@ -209,6 +209,8 @@ lines(line5,type="l",col="darkorange",lwd=7)
 
 
 
+
+
 x<-c(5,7,8,7,2,2,9,4,11,12,9)
 y<-c(99,86,88,111,103,87,94,78,77,85,86)
 plot(x,y)
@@ -276,16 +278,218 @@ legend("bottom",x,fill = colors)
 
 
 
+
+
+
+
+
+
 #install.packages("plotrix")
 library(plotrix)
 
-labels<-c("a","b","c","d")
-values<-C(10,20,30,40)
-pie3D(values,labels=labels,main="piechart for 3D",col = colors,explode=0.2)
-colors<-c("red","green","yellow","blue")
+labels<-c("car","bike","bus","train","ship")
+values<-c(10,20,30,40,50)
+pie3D(values,labels=labels,main="piechart for 3D",col = colors)
+colors<-c("red","green","yellow","blue","purple")
 
 
-percentages <- (values / sum(values) * 100)
-labels_with_percentages <- paste0(labels, percentages, "%", sep = " ")
-pie3D(values, labels = labels_with_percentages,radius=1.5, col = colors, main = "Pie Chart with Percentages",explode=0.2)
+percentages <- round(values / sum(values) * 100)
+labels_with_percentages <- paste(labels, percentages, "%", sep = " ")
+pie3D(values, labels = labels_with_percentages,radius=1.3, col = colors, main = "Pie Chart with Percentages",explode=0.2)
+legend("topright",labels,fill = colors)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+data()
+head(iris)
+View(iris)
+summary(iris)
+str(iris)
+
+
+
+
+
+
+
+
+datas<-read.csv("C:/Users/admin/Downloads/Hospital+Patient+Records/patients.csv")
+head(datas)
+tail(datas)
+View(datas)
+summary(datas)
+str(datas)
+colnames(datas)
+
+plot(datas)
+boxplot(datas[7])
+
+
+
+days<-c('mon','tue','weg','thu','fri')
+temp<-c(25.6,30.1,45,37.3,41.2)
+rain<-c(TRUE,TRUE,FALSE,FALSE,TRUE)
+
+df<-data.frame(days,temp,rain)
+print(df)
+summary(df)
+str(df)
+
+df[2,]
+df[,3]
+
+df[,'temp']
+df[2:4,c('days','temp')]
+
+df$days
+df$rain
+df['rain']
+df['temp']
+subset(df,subset=rain==TRUE)
+subset(df,subset=temp>35)
+
+sorted.temp<-order(df$temp)
+df_sorted<-df[sorted.temp,]
+print(df_sorted)
+
+
+sorted.temp
+
+desc.temp<-order(-df$temp)
+df_desc_sorted<-df[desc.temp,]
+print(df_desc_sorted)
+
+
+sort.temp<-order(df$temp)
+df[sort.temp,]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+authors<-data.frame(surname=c("tukey","venables","tierney","ripley","mcneil"),
+  nationality=c("uk","india","csk","rcb","mi"),
+  deceased=c("yes",rep("no",4)))
+
+books<-data.frame(name=I(c("tukey","venables","tierney","ripley","ripley","mcneil","R core")),
+  title=c("exploratory data analysis","modern applied statistics...","lisp-stat","intractive data analysis","an introduction to r","gdgdg","dhfhf"),
+  other.auther=c(NA,"ripley",NA,NA,NA,NA,"venables & smith"))
+authors
+books
+View(books)
+(m1<-merge(authors,books,by.x="surname",by.y="name"))
+
+
+
+
+
+
+
+
+list1<-list(x=c(10,20,30),
+             y=c("a","b","c"),
+             z=c(TRUE,FALSE))
+list1
+
+
+
+list2<-list(vec=seq(1:10),
+            mat=matrix(1:9,3,3),
+            list=list(a=10,b=20))
+list2
+is.recursive(list2)
+
+
+
+
+
+
+
+
+
+
+
+
+length(list2)
+class(list2)
+
+price<-c(10,20,30)
+pricelist<-as.list(price)
+pricelist
+price
+
+
+newprice<-unlist(pricelist)
+newprice
+
+
+hello_world<-function(){
+  print('hello world in R!')
+}
+hello_world()
+
+
+
+
+hello_name<-function(f,p,l){
+  print(paste0(f,p,l))
+}
+hello_name('HARI','-','SIMBA')
+
+
+
+
+
+
+
+add_num<-function(num1,num2){
+  print(num1+num2)}
+add_num(30,50)
+
+
+
+hello_name<-function(name='SIMBA'){
+  print(paste('hello',name))
+}
+hello_name()
+
+
+
+
+hello_name()
+hello_name('samantha')
+
+full_name<-function(name='hari',title='pk'){
+  return(paste(name,'',title))
+}
+full_name()
